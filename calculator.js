@@ -1,7 +1,7 @@
 const exampleInput = {
   num1: 3,
   num2: 2,
-  operation: "-"
+  operation: "-",
 };
 
 // VALID OPERATORS
@@ -16,22 +16,22 @@ const validValues = [
   "/",
   "%",
   "exponify",
-  "**"
+  "**",
 ];
 
 if (!validValues.includes(exampleInput.operation)) {
   console.log("Operation is not valid. Please check your operation value");
 }
 
-const isZeroNum = function(num) {
+const isZeroNum = function (num) {
   return num === 0;
 };
 
-const isNumber = function(value) {
+const isNumber = function (value) {
   return typeof value === "number" && isFinite(value); //checking data types: https://webbjocke.com/javascript-check-data-types/
 };
 
-const runOperation = function(numOne, numTwo, operation) {
+const runOperation = function (numOne, numTwo, operation) {
   let operator;
   let result;
   switch (operation) {
@@ -57,7 +57,7 @@ const runOperation = function(numOne, numTwo, operation) {
     case "/":
     case "%": {
       if (isZeroNum(numTwo)) {
-        console.log("Second number should be greater than 0 for division.");
+        console.log("Second number should not be 0.");
       } else {
         result = numOne / numTwo;
         operator = "/";
@@ -82,5 +82,3 @@ if (!isNumber(exampleInput.num1) || !isNumber(exampleInput.num2)) {
 } else {
   runOperation(exampleInput.num1, exampleInput.num2, exampleInput.operation);
 }
-
-  
